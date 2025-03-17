@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Converter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="script.js" defer></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Language Converter</h1>
+        <div class="button-group">
+            <button onclick="showUploadOption()" class="text-button"><i class="bi bi-upload"></i> Upload Image</button>
+            <button onclick="showTextOption()" class="text-button"><i class="material-icons">&#xe8e2;</i> Enter Text</button>
+        </div>
+        
+        <input type="file" id="imageUpload" class="hidden-field">
+        <textarea id="textInput" class="hidden-field" placeholder="Enter your text here..."></textarea>
+
+        <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="hi">Hindi</option>
+        </select>
+        
+        <button onclick="submitData()">Submit</button>
+
+        <div class="output hidden" id="results">
+            <p><strong>Original Text:</strong></p>
+            <p id="originalText"></p>
+            <p><strong>Translated Text:</strong></p>
+            <p id="translatedText"></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
